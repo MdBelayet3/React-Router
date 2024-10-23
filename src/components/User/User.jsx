@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import './User.css'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const User = ({ user }) => {
     const { name, id, phone, email } = user;
@@ -11,12 +11,19 @@ const User = ({ user }) => {
         padding: '10px',
         borderRadius: '20px'
     }
+
+    const navigate = useNavigate();
+
+    const handleShowDetails = () =>{
+        navigate(`/user/${id}`)
+    }
+
     return (
         <div style={styles}>
             <h3>Name : {name}</h3>
             <h4>Phone : {phone}</h4>
-            <p>Email : {email}</p>
-            <Link to={`/user/${id}`}> <button>Show Details</button></Link>
+            <p>Email : {email}</p><br />
+            <button onClick={handleShowDetails}>Show details</button>
         </div>
     );
 };
