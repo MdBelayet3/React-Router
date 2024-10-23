@@ -16,11 +16,13 @@ import Posts from './components/Posts/Posts.jsx';
 import PostDetails from './components/PostDetails/PostDetails.jsx';
 import Albums from './components/Albums/Albums.jsx';
 import AlbumDetails from './components/AlbumDetails/AlbumDetails.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path: '/about',
